@@ -1,4 +1,4 @@
-import React, { ReactNode, useState, useEffect } from 'react';
+import React, { ReactNode, useState, useCallback, useMemo } from 'react';
 import styled from 'styled-components';
 import { FigmaTheme } from '../utils/figmaData';
 import FeatherIcon from 'feather-icons-react';
@@ -33,24 +33,13 @@ const StyledActionButton = styled.button`
   padding: 16px 16px 16px 0;
   cursor: pointer;
 
-  span {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    font-weight: ${FigmaTheme.typography.body.medium.fontWeight};
-
-    svg {
-      stroke: ${FigmaTheme.colors.iconography.iconography} // feels bad
-    }
-  }
-
   &::first-of-type {
     border-top-width: 0;
   }
 
   /* not in figma, but offering this as an indicator of being interactive; would bring up with designers */
   > *:first-child {
-   transition: transform 150ms ease-out;
+    transition: transform 150ms ease-out;
   }
 
   &:hover, &:focus {
@@ -61,10 +50,21 @@ const StyledActionButton = styled.button`
 
   &:disabled {
     cursor: default;
-
     > *:first-child {
       transform: none;
     }
+  }
+`;
+
+const IconWrapper = styled.span`
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-weight: ${FigmaTheme.typography.body.medium.fontWeight};
+
+
+  svg {
+    stroke: ${FigmaTheme.colors.iconography.iconography};
   }
 `;
 
@@ -72,18 +72,16 @@ const OrderActionButton = ({ order, variant }: OrderActionButtonProps) => {
   const [actionModalOpen, setActionModalOpen] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
 
-  const onConfirmDeliverySubmit = () => {
-    // this is where an API call would go for the confirmDelivery variant. but for now let's keep it local
+  const onConfirmDeliverySubmit = useCallback(() => {
     setActionModalOpen(false);
     setIsComplete(true);
-  };
+  }, []);
 
-  const onClose = () => {
+  const onClose = useCallback(() => {
     setActionModalOpen(false);
-  };
+  }, []);
 
-  // declare our variants
-  const variants: Record<Variant, VariantProps> = {
+  const variants: Record<Variant, VariantProps> = useMemo(() => ({
     confirmDelivery: {
       title: 'Confirm delivery',
       icon: <FeatherIcon icon="package" size="16" />,
@@ -95,41 +93,31 @@ const OrderActionButton = ({ order, variant }: OrderActionButtonProps) => {
       icon: <FeatherIcon icon="dollar-sign" size="16" />,
       completionStatus: order.paymentRecorded
     }
-  };
+  }), [order, onClose, onConfirmDeliverySubmit]);
 
-  const {
-    title,
-    icon,
-    modalContent,
-    completionStatus
-  } = variants[variant];
-
-  useEffect(() => {
-    if (completionStatus) {
-      setIsComplete(true);
-    }
-  }, [completionStatus]);
-
-  const maybeOpenModal = () => {
-    if (modalContent) {
+  const maybeOpenModal = useCallback(() => {
+    if (variants[variant].modalContent) {
       setActionModalOpen(true);
     }
-  };
+  }, [variant, variants]);
+
+  const { title, icon, modalContent } = variants[variant];
 
   return (
     <>
-      <StyledActionButton type="button" onClick={maybeOpenModal} disabled={isComplete}>
-        <span>
-          {!isComplete ? icon : (
-            <FeatherIcon icon='check-circle' size='16' />
-          )}
+      <StyledActionButton
+        type="button"
+        onClick={maybeOpenModal}
+        disabled={isComplete}
+        aria-label={isComplete ? `${title} - Completed` : title}
+      >
+        <IconWrapper>
+          {!isComplete ? icon : <FeatherIcon icon='check-circle' size='16' />}
           {title}
-        </span>
-        {isComplete && (
-          <Badge variant='green' text='Confirmed' />
-        )}
+        </IconWrapper>
+        {isComplete && <Badge variant='green'>Confirmed</Badge>}
       </StyledActionButton>
-      {(modalContent && !isComplete) && (
+      {modalContent && !isComplete && (
         <Modal onClose={onClose} isOpen={actionModalOpen}>
           {modalContent}
         </Modal>
