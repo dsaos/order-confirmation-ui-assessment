@@ -6,7 +6,7 @@ type Variant = 'green';
 
 interface BadgeProps {
   variant: Variant;
-  text: string;
+  children: React.ReactNode
 }
 
 const StyledBadge = styled.div<{ variant: string }>`
@@ -32,9 +32,9 @@ const StyledBadge = styled.div<{ variant: string }>`
   }};
 `;
 
-const Badge = ({ variant = 'green', text = 'Confirmed' }: BadgeProps) => (
+const Badge = ({ variant = 'green', children }: BadgeProps) => (
   <StyledBadge variant={variant}>
-    {text}
+    {children}
   </StyledBadge>
 );
 
