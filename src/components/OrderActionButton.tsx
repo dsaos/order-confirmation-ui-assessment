@@ -24,13 +24,14 @@ interface OrderActionButtonProps {
 
 const StyledActionButton = styled.button`
   border: 0;
-  background: transparent;
+  background-color: transparent;
   border-top: 1px solid ${FigmaTheme.colors.borders.transparent};
   width: 100%;
   display: flex;
   justify-content: space-between;
   gap: 12px;
   padding: 16px 16px 16px 0;
+  cursor: pointer;
 
   span {
     display: flex;
@@ -45,6 +46,25 @@ const StyledActionButton = styled.button`
 
   &::first-of-type {
     border-top-width: 0;
+  }
+
+  /* not in figma, but offering this as an indicator of being interactive; would bring up with designers */
+  > *:first-child {
+   transition: transform 150ms ease-out;
+  }
+
+  &:hover, &:focus {
+    > *:first-child {
+      transform: translateX(4px); 
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+
+    > *:first-child {
+      transform: none;
+    }
   }
 `;
 

@@ -8,8 +8,8 @@ type Variant = 'primary' | 'secondary';
 interface ButtonProps {
   variant: Variant;
   children: React.ReactNode;
-  leftIcon?: string;
-  rightIcon?: string;
+  leftIcon?: string; // turns out this plugin doesn't have typing for which icon works either...
+  rightIcon?: string; // ...consider using a different plugin there with stricter typing
 }
 
 const StyledButton = styled.button<{ variant: string }>`
@@ -25,6 +25,7 @@ const StyledButton = styled.button<{ variant: string }>`
   font-size: ${FigmaTheme.typography.body.strong.fontSize};
   line-height: ${FigmaTheme.typography.body.strong.lineHeight};
   color: ${FigmaTheme.colors.typography.base};
+  transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
 
   ${({ variant }) => {
     switch (variant) {

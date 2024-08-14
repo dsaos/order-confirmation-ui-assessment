@@ -12,12 +12,8 @@ const Main = styled.main`
   background-color: ${FigmaTheme.colors.backgrounds.global};
   color: ${FigmaTheme.colors.typography.base};
   font-family: Inter, sans-serif;
-  line-height: ${FigmaTheme.typography.body.medium.lineHeight}; // consistent throughout all typography sets
-  min-height: calc(100vh - 48px); // offset padding, take up full height
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
+  line-height: ${FigmaTheme.typography.body.medium.lineHeight}; /* consistent throughout all typography sets */
+  min-height: calc(100vh - 48px); /* offset padding, take up full height */
   padding: 24px;
 `;
 

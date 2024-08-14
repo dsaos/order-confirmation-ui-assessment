@@ -6,11 +6,13 @@ export const orders: Order[] = [
     description: 'Spliff Decision',
     deliveryConfirmed: false,
     paymentRecorded: false
-  },
+  }
+  /*
   {
     id: 123,
     description: 'A very long title that would spread to two lines and potentially cause issues',
     deliveryConfirmed: true,
     paymentRecorded: false
   }
+  */
 ];

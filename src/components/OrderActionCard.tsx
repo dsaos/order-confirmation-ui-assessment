@@ -10,9 +10,10 @@ type OrderActionCardProps = {
 
 const OrderActionCardContainer = styled.section`
   background-color: ${FigmaTheme.colors.backgrounds.container};
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem;
   border-radius: 8px;
-  width: clamp(200px, 600px, 80vw);
+  min-width: 160px;
+  max-width: 700px; /* make this too long and it can be hard to tell what is confirmed */
   overflow: hidden; /* clips the header to the border-radius above */
   box-shadow: 0 2px 2px 0 #00000026;
 
