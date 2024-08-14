@@ -11,7 +11,6 @@ This project aims to match the Figma prototypes 1:1, but I'd interface with the 
 
 - I am concerned about **replacing a step's icon with a check when complete**. We already have an indicator of completion with the badge, and the change of the icon to `check-circle` might make the user lose their place, especially if we add more actions. Should we maintain the icon even when complete?
 - **We didn't see any hover or focus styles for the card action buttons in Figma.** Those are important for indicating whether an element is interactive, so I have taken a stab at these, but would welcome feedback. Please note that the Figma-provided padding at least initially prevents us from animating with background color, although we can make this work if that's what designers want.
-- The dialog form has some accessibility concerns. Namely, **we are not including a label nor placeholder on the text input**, which might interfere with people using screen readers and can generally cause confusion. Could we explore how to alleviate these concerns?
 - We added some animations for the initialization of the modal, but per best practices, we aren't blocking interactivity with the app on successful completion of the modal, so no animation on exit. Please let me know if you'd like to talk further about animations.
 
 ## Dev Notes & Approach

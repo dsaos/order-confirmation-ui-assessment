@@ -21,6 +21,10 @@ const TextInput = styled.input<{ $isInvalid: boolean }>`
   transition: border-color 200ms ease-in-out;
   border-color: ${({ $isInvalid }) => $isInvalid ? FigmaTheme.colors.borders.formOutlineCritical : FigmaTheme.colors.borders.formOutlineDefault};
 
+  &::placeholder {
+    color: ${FigmaTheme.colors.typography.secondary};
+  }
+
   &:hover {
     border-color: ${({ $isInvalid }) => $isInvalid ? FigmaTheme.colors.borders.formOutlineCritical : FigmaTheme.colors.borders.formOutlineHover};
   }
@@ -108,6 +112,8 @@ const ConfirmDeliveryModal = ({ onCancel, onSubmit, orderId }: ConfirmDeliveryMo
         <TextInput
           type="text"
           value={inputValue}
+          placeholder='Enter order number'
+          aria-label='Order number'
           onChange={handleInputChange}
           $isInvalid={inputIsInvalid} // `$` prefix prevents this attr being relayed to DOM, which is invalid
         />
