@@ -7,6 +7,8 @@ interface ModalProps {
   children: React.ReactNode;
 }
 
+// TODO: replace with Figma styles
+
 const ModalOverlay = styled.div`
   position: fixed;
   top: 0;
@@ -21,8 +23,6 @@ const ModalOverlay = styled.div`
 `;
 
 const ModalContent = styled.section`
-  background-color: #fff;
-  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   max-width: 90%;
