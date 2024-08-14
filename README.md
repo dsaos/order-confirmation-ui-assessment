@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Install & Run
 
-1. Clone the repo to your device, or visit [here](#).
+1. Clone the repo to your device, or visit [here](https://dsaos.github.io/order-confirmation-ui-assessment/).
 2. Via the command line, run `yarn` to install dependencies.
 3. Run `yarn start` to start a local server.
 
