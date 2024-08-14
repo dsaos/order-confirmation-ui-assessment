@@ -9,6 +9,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Questions for Designers
 This project aims to match the Figma prototypes 1:1, but I'd interface with the designers on the following:
 
+
+- I'm going to broach the WCAG issues here: the card description (smaller text) is too small and lacks a sufficient contrast ratio for AA+ standards. We could simply change the color, but I have some larger concerns about text sizing, where we generally recommend a 16px base size as opposed to the 14px size used here (12px for the offending line). Although we're using scalable units to support browser/text zoom levels, the default experience may fail WCAG 2.1 AA+. Let's talk about this!
 - I am concerned about **replacing a step's icon with a check when complete**. We already have an indicator of completion with the badge, and the change of the icon to `check-circle` might make the user lose their place, especially if we add more actions. Should we maintain the icon even when complete?
 - **We didn't see any hover or focus styles for the card action buttons in Figma.** Those are important for indicating whether an element is interactive, so I have taken a stab at these, but would welcome feedback. Please note that the Figma-provided padding at least initially prevents us from animating with background color, although we can make this work if that's what designers want.
 - We added some animations for the initialization of the modal, but per best practices, we aren't blocking interactivity with the app on successful completion of the modal, so no animation on exit. Please let me know if you'd like to talk further about animations.
