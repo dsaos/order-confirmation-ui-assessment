@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import OrderActionCard from './components/OrderActionCard';
+import { orders } from './utils/orderData';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/700.css';
 
-function App() {
+// base global styles
+const Main = styled.main`
+  font-family: Inter, sans-serif;
+  min-height: calc(100vh - 48px); // offset padding, take up full height
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+`;
+
+const App = () => {
+  // fetch orders; this would normally be an API call but we're just mocking it for this assessment
+  const orderData = orders;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Main>
+      {orderData.map((order) => (
+        <OrderActionCard key={order.id} order={order} />
+      ))}
+    </Main>
   );
-}
+};
 
 export default App;
