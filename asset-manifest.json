@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/order-confirmation-ui-assessment/static/css/main.c9a3bbb6.css",
-    "main.js": "/order-confirmation-ui-assessment/static/js/main.1f34c671.js",
+    "main.js": "/order-confirmation-ui-assessment/static/js/main.0b85a191.js",
     "static/js/453.64741afc.chunk.js": "/order-confirmation-ui-assessment/static/js/453.64741afc.chunk.js",
     "static/media/inter-latin-ext-700-normal.woff": "/order-confirmation-ui-assessment/static/media/inter-latin-ext-700-normal.149d81a49bd1ff0e6711.woff",
     "static/media/inter-latin-ext-500-normal.woff": "/order-confirmation-ui-assessment/static/media/inter-latin-ext-500-normal.2b8be079a0e965b2f035.woff",
@@ -47,11 +47,11 @@
     "static/media/inter-vietnamese-400-normal.woff2": "/order-confirmation-ui-assessment/static/media/inter-vietnamese-400-normal.44c9df135eec470b0ab6.woff2",
     "index.html": "/order-confirmation-ui-assessment/index.html",
     "main.c9a3bbb6.css.map": "/order-confirmation-ui-assessment/static/css/main.c9a3bbb6.css.map",
-    "main.1f34c671.js.map": "/order-confirmation-ui-assessment/static/js/main.1f34c671.js.map",
+    "main.0b85a191.js.map": "/order-confirmation-ui-assessment/static/js/main.0b85a191.js.map",
     "453.64741afc.chunk.js.map": "/order-confirmation-ui-assessment/static/js/453.64741afc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c9a3bbb6.css",
-    "static/js/main.1f34c671.js"
+    "static/js/main.0b85a191.js"
   ]
 }
