@@ -29,9 +29,6 @@ const TextInput = styled.input<{ $isInvalid: boolean }>`
     outline: 0; // bad practice for screen readers but hey, Figma
     border-color: ${FigmaTheme.colors.borders.formOutlineActive} !important;
   }
-
-
-
 `;
 
 const ModalBody = styled.div`
