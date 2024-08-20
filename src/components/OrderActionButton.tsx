@@ -44,7 +44,7 @@ const StyledActionButton = styled.button`
 
   &:hover, &:focus {
     > *:first-child {
-      transform: translateX(4px); 
+      transform: translateX(4px);
     }
   }
 
