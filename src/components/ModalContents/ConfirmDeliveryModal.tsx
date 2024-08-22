@@ -5,7 +5,7 @@ import { FigmaTheme } from '../../utils/figmaData';
 import Button from '../Button';
 import FeatherIcon from 'feather-icons-react';
 
-interface ConfirmDeliveryModalProps {
+export interface ConfirmDeliveryModalProps {
   onCancel: () => void;
   onSubmit: (data: string) => void;
   orderId: number;
@@ -25,7 +25,7 @@ const TextInput = styled.input<{ $isInvalid: boolean }>`
     color: ${FigmaTheme.colors.typography.secondary};
   }
 
-  &:hover {
+  &:hover:not(:active), &:hover:not(:focus) {
     border-color: ${({ $isInvalid }) => $isInvalid ? FigmaTheme.colors.borders.formOutlineCritical : FigmaTheme.colors.borders.formOutlineHover};
   }
 
@@ -124,15 +124,17 @@ const ConfirmDeliveryModal = ({ onCancel, onSubmit, orderId }: ConfirmDeliveryMo
           leftIcon='check'
           onClick={handleSubmit}
           type='submit'
-          disabled={error}>
-            Confirm delivery
+          disabled={error}
+        >
+          Confirm delivery
         </Button>
         <Button
           variant='secondary'
           leftIcon='x'
           onClick={onCancel}
-          type='reset'>
-            Cancel
+          type='reset'
+        >
+          Cancel
         </Button>
       </ModalFooter>
     </form>
