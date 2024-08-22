@@ -29,8 +29,8 @@ const StyledButton = styled.button<{ variant: string }>`
 
   ${({ variant }) => {
     switch (variant) {
-    case 'primary':
-      return `
+      case 'primary':
+        return `
         background-color: ${FigmaTheme.colors.buttons.primary.default};
 
         &:hover, &:focus {
@@ -41,8 +41,8 @@ const StyledButton = styled.button<{ variant: string }>`
           background-color: ${FigmaTheme.colors.buttons.primary.pressed};
         }
       `;
-    default:
-      return `
+      default:
+        return `
         background-color: ${FigmaTheme.colors.buttons.secondary.default};
 
         &:hover, &:focus {

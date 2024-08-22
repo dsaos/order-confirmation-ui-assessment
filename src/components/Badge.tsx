@@ -19,15 +19,15 @@ const StyledBadge = styled.div<{ variant: string }>`
 
   color: ${({ variant }) => {
     switch (variant) {
-    case 'green':
-      return FigmaTheme.colors.dynamicAccents.green.foreground;
+      case 'green':
+        return FigmaTheme.colors.dynamicAccents.green.foreground;
     }
   }};
 
   background-color: ${({ variant }) => {
     switch (variant) {
-    case 'green':
-      return FigmaTheme.colors.dynamicAccents.green.background;
+      case 'green':
+        return FigmaTheme.colors.dynamicAccents.green.background;
     }
   }};
 `;
